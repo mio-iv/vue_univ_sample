@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>My first Vue app</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head> 
+  <body>
+    <div>Vue3</div>
+    <div id="app">    <!-- テンプレート（expressでいうjadeファイルと同等 -->
+      <p>{{ message }}</p>
+    </div>
+    <script>
+      const appdata = { // appdataがオブジェクト？
+        data() {  // Data関数はreturnの中身を返す   appdataオブジェクトのメゾッド？
+          return {
+            message: "Hello Vue",
+            count: 0
+          }
+        },
+        mounted() {                         //インタラクティブに仮想DOMの操作？appdataオブジェクトのメゾッド？
+            setInterval(() => {             //setInterval...ある一定の時間間隔で実行される関数
+                this.count ++;              //appdataが持つプロパティと言える
+                this.message = 'Count: ' + this.count
+            }, 1000);                       //は1000ミリ秒,1秒
+        }
+      }
+
+      Vue.createApp(appdata).mount('#app')  // Id=“#app”で指定したエレメントにスクリプトをマウント、連携する
+    </script>
+  </body>
+</html>

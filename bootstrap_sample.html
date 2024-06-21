@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>My first Vue app</title>
+    <!-- htmlの中で指定 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    <!-- ここまで -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head> 
+  <body>
+    <div class="p-3 mb-2 bg-primary text-white">Vue3</div>
+    <div id="app" class="p-3 mb-2 bg-success text-white">
+      <p>{{ message }}</p>
+    </div>
+    <script>
+      const appdata = {
+        data() {  // Data関数はreturnの中身を返す
+          return {
+            message: "Hello Vue"
+          }
+        }
+      }
+
+      Vue.createApp(appdata).mount('#app')  // Id=“#app”で指定したエレメントにスクリプトをマウント、連携する
+    </script>
+  </body>
+</html>

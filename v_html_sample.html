@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Vue.js のサンプル</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>  <!-- Vue.jsの読み込み -->
+  </head> 
+  <body>
+    <h1>Vue3</h1>
+    <div id="app">  <!-- テンプレート（expressでいうjadeファイルと同等 -->
+    <div v-html="message"></div>
+    </div>
+    <script>
+        const list = ["apple", "banana", "cerry"]
+        const appdata = {
+            data() {  // Data関数はreturnの中身を返す
+            return {
+                message: `<ul>
+                    <li>${list[0]}</li>
+                    <li>${list[1]}</li>
+                    <li>${list[2]}</li>
+                </ul>`
+            }
+            }
+        }
+
+      Vue.createApp(appdata).mount('#app')  // Id=“#app”で指定したエレメントにスクリプトをマウント、連携する
+    </script>
+  </body>
+</html>
