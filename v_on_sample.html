@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>My first Vue app</title>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <h1 class="bg-secondary text-white display-4 px-3">Vue3</h1>
+        <div id="app" class="container">
+            <button @click="onClick">マウスをクリック</button>      <!-- 「v-on:click=”onClick”」であれば「@click=”onClick”」 -->
+            <!-- <button v-on:click="onClick">マウスをクリック</button> -->
+                <p>{{now}}</p>      <!-- ここに表示 -->
+        </div>
+        <script>
+            const appdata = {
+                data: () => ({
+                    now: '-'
+                }),
+                methods: {
+                    onClick: function () {                                  // onClickが呼ばれたときの挙動を定義（関数）
+                        this.now = new Date().toLocaleString('ja-JP');      //クリックされた時のデータ
+                        //日付はDateメソッドを使用。日本時間にするためにはtoLocaleString('ja-JP')
+                    }
+                } 
+            }
+            Vue.createApp(appdata).mount('#app')
+        </script>
+    </body>
+      
+
+</html>
